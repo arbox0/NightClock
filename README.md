@@ -1,7 +1,7 @@
 NightWidget
 ===========
 
-Please, read Clock_Config.pdf file.
+Please, read NightClock_Manual.pdf file.
 
 NightClock
     Copyright (C) 2014  NightClock contributors
