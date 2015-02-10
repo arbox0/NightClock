@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, DemoActivity!</string>
+    <string name="app_name">NightClock</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="sgv_id">sgv_id</string>
+    <string name="arrow_id">arrow_id</string>
+    <string name="sgv_none">100</string>
+    <string name="arrow_none">---</string>
+    <string name="self_destruct">Close It</string>
+    <string name="but_contentDesc">Launch Nightscout</string>
+    <string name="phone_battery">phone battery</string>
+    <string name="device_battery">device battery</string>
+    <string name="phone_battlabel">Phone batt.:</string>
+    <string name="default_phone_batt">100%</string>
+    <string name="default_dev_batt">1.25v</string>
+    <string name="insulin_data_default">---</string>
+    <string name="insulin_label">insulin:</string>
+    <string name="alert_thresholds">Alert Thresholds</string>
+    <string name="upper_warning">Upper Warning</string>
+    <string name="lower_warning">Lower Warning</string>
+    <string name="upper_alarm">Upper Alarm</string>
+    <string name="lower_alarm">Lower Alarm</string>
+    <string name="upper_warning_defval">140</string>
+    <string name="lower_warning_defval">80</string>
+    <string name="upper_alarm_defval">170</string>
+    <string name="lower_alarm_defval">70</string>
+    <string name="close">Close Alert</string>
+    <string name="alert">Alert</string>
+    <string name="mbg_label">Last MBG:</string>
+    <string name="enable_alarm">Enable Alarm</string>
+    <string name="alarm_after_label">After </string>
+    <string name="alarm_minutes_label"> Min.</string>
+    <string  name="alarm_2hours_default">120</string>
+    <string  name="show_increment">Glucose difference</string>
+    <string  name="show_MBG">MBG info.</string>
+    <string  name="show_mobile_battery">Uploader Battery</string>
+    <string  name="show_pump_battery">Pump Battery</string>
+    <string  name="show_insulin">Insulin left</string>
+        <string  name="alarmActive">Alarm Active</string>
+    <string  name="alarmInactive">Alarm Inactive</string>
+    <string  name="show_Notifications">Notifications</string>
+    <string  name="data_2_show">Data to show</string>
+    <string  name="widgetSettings">Settings</string>
+    <string name="eula_title">Disclaimer</string>
+    <string name="eula_accept">Accept</string>
+    <string name="eula_refuse">Refuse</string>
+    <string  name="version">Version: 02.02.15_2</string>
+    <string  name="preferences_menu">Preferences</string>
+    <string  name="close_alarm">Close Alarm</string>
+    <string  name="moreMinutes">5 min +, please!</string>
+    <style name="ButtonText">
+    <item name="android:layout_width">fill_parent</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textColor">#ffffff</item>
+    <item name="android:gravity">center</item>
+    <item name="android:layout_margin">3dp</item>
+    <item name="android:textSize">30dp</item>
+    <item name="android:textStyle">bold</item>
+    <item name="android:shadowColor">#000000</item>
+    <item name="android:shadowDx">1</item>
+    <item name="android:shadowDy">1</item>
+    <item name="android:shadowRadius">2</item>
+    
+	</style>
+	<string-array name="types">
+     <item>Dexcom G4</item>
+     <item>Medtronic CGM</item>
+    </string-array>
+    <string-array name="metric_types">
+     <item>mg/dl</item>
+     <item>mmol/l</item>
+    </string-array>
+    <string-array name="reservoir_units">
+     <item>176</item>
+     <item>300</item>
+    </string-array>
+    <string-array name="types_values">
+     <item>1</item>
+     <item>2</item>
+    </string-array>
+    <string-array name="refreshPeriodList">
+     <item>1 min.</item>
+     <item>2 min.</item>
+     <item>3 min.</item>
+     <item>4 min.</item>
+     <item>5 min.</item>
+     <item>10 min.</item>
+     <item>15 min.</item>
+     <item>20 min.</item>
+     <item>30 min.</item>
+     <item>60 min.</item>
+     <item>75 min.</item>
+    </string-array>
+    <string-array name="timeList">
+     <item>10 min.</item>
+     <item>15 min.</item>
+     <item>20 min.</item>
+     <item>25 min.</item>
+     <item>30 min.</item>
+     <item>35 min.</item>
+     <item>40 min.</item>
+     <item>45 min.</item>
+     <item>50 min.</item>
+     <item>55 min.</item>
+     <item>60 min.</item>
+    </string-array>
+    <string-array name="refreshperiod_values">
+     <item>1</item>
+     <item>2</item>
+     <item>3</item>
+     <item>4</item>
+     <item>5</item>
+     <item>6</item>
+     <item>7</item>
+     <item>8</item>
+     <item>9</item>
+     <item>10</item>
+     <item>11</item>
+    </string-array>
+
+</resources>
