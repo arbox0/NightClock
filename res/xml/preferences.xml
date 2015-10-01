@@ -44,7 +44,7 @@
          <com.nightscoutclock.android.utils.CustomSwitchPreference
 	            android:title="mmol/l decimals"
 	            android:key="mmolDecimals"
-	            android:defaultValue="true"
+	            android:defaultValue="false"
 	            android:switchTextOn="2"
 	            android:switchTextOff="1"
 	            android:summaryOn="Activated. 2 Decimal values will be shown ."
@@ -243,6 +243,29 @@
 		    />
     </PreferenceCategory>
     <PreferenceCategory android:title="Sharing">
+    <com.nightscoutclock.android.utils.CustomSwitchPreference
+            android:title="MongoDB REST Upload"
+            android:key="isMongoRest_clock"
+            android:disableDependentsState="false"
+            android:switchTextOn="YES"
+            android:switchTextOff="NO"
+            android:summaryOn="Activated. USING MONGO REST API.Mogo Driver is disabled. Mongodb 3.0"
+            android:summaryOff="Deactivated. USING MONGO DRIVER.Mogo Rest is disabled. Mongodb 2.6 and older">
+    </com.nightscoutclock.android.utils.CustomSwitchPreference>
+    <EditTextPreference
+            android:title="APIKEY"
+            android:key="apiKey_clock"
+            android:dialogTitle="Enter API Key"
+            android:dialogMessage="get your API KEY from mongolabs"
+            android:defaultValue="">
+    </EditTextPreference>
+     <EditTextPreference
+            android:title="Database Name"
+            android:key="dbName_clock"
+            android:dialogTitle="Enter Database Name"
+            android:dialogMessage="set your Database Name"
+            android:defaultValue="">
+    </EditTextPreference>
     <EditTextPreference
             android:title="MongoDB URI"
             android:key="MongoDB URI"

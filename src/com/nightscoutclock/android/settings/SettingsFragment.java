@@ -35,11 +35,22 @@ public class SettingsFragment extends PreferenceFragment implements
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 
 		/* set preferences */
 		addPreferencesFromResource(R.xml.preferences);
 		addMedtronicOptionsListener();
 		PreferenceManager.setDefaultValues(context, R.xml.preferences, false);
+		final ListPreference metric_type = (ListPreference) findPreference("metric_preference");
+		final CustomSwitchPreference mmolDecimals = (CustomSwitchPreference)findPreference("mmolDecimals");
+		int index_met = metric_type.findIndexOfValue(PreferenceManager.getDefaultSharedPreferences(context).getString("metric_preference", "1"));
+
+		if (index_met == 0){
+
+			mmolDecimals.setEnabled(false);
+		}else{ 
+			mmolDecimals.setEnabled(true);
+		}
 		// iterate through all preferences and update to saved value
 		for (int i = 0; i < getPreferenceScreen().getPreferenceCount(); i++) {
 			initSummary(getPreferenceScreen().getPreference(i));
@@ -158,16 +169,16 @@ public class SettingsFragment extends PreferenceFragment implements
 				float divisor = 1;
 				if (index == 1){
 					divisor = 18;
-					mmolDecimals.setEnabled(false);
+					mmolDecimals.setEnabled(true);
 				}else{ 
 					divisor = 1.0f/18.0f;
-					mmolDecimals.setEnabled(true);
+					mmolDecimals.setEnabled(false);
 				}
 				if (metric_type.getValue().equalsIgnoreCase(val))
 					return true;
 				
 				DecimalFormat df = null;
-				if (prefs.getBoolean("mmolDecimals", true))
+				if (prefs.getBoolean("mmolDecimals", false))
 					df = new DecimalFormat("#.##", new DecimalFormatSymbols(Locale.US));
 				else
 					df = new DecimalFormat("#.#", new DecimalFormatSymbols(Locale.US));
