@@ -26,6 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".alerts.AlertActivity"
+                  android:icon="@drawable/ic_launcher"
+                  android:label="NightWidget Alert"
+                  android:screenOrientation="portrait"/>
         <activity android:name=".settings.SettingsActivity"
                   android:icon="@drawable/ic_launcher"
                   android:label="Settings"/>

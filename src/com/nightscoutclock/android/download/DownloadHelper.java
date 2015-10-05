@@ -253,8 +253,8 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 	 */
 	private JSONObject doMongoDownload() {
 		log.info("doMongoDownload");
-		String dbURI = prefs.getString("MongoDB URI_widget", null);
-		String collectionName = prefs.getString("Collection Name_widget", "entries");
+		String dbURI = prefs.getString("MongoDB URI", null);
+		String collectionName = prefs.getString("Collection Name", "entries");
 		String apiKey = prefs.getString("apiKey_clock", "aaaaa");
 		String dsCollectionName = prefs.getString(
 				"DeviceStatus Collection Name", "devicestatus");
@@ -285,7 +285,7 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 			finalResult = new JSONObject();
 			MongoClient client = null;
 			try {
-				if (!prefs.getBoolean("isMongoRest_widget", false)) {
+				if (!prefs.getBoolean("isMongoRest_clock", false)) {
 					// connect to db
 					// MongoClientURI uri = new MongoClientURI(dbURI.trim());
 					Builder b = MongoClientOptions.builder();
@@ -542,7 +542,7 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 					client.close();
 				} else {
 					if (cgmSelected == Constants.MEDTRONIC_CGM) {
-						filter = "q={'deviceId':{$eq:'"+prefs.getString("medtronic_cgm_id_widget", "")+"'}}";
+						filter = "q={'deviceId':{$eq:'"+prefs.getString("medtronic_cgm_id", "")+"'}}";
 						JSONArray medtronicDeviceCursor = doGetRequest(httpclient, deviceStatusUrl, filter, null, "1", apiKey);
 						if (medtronicDeviceCursor != null && medtronicDeviceCursor.length() > 0) {
 							JSONObject medtronicDevice = (JSONObject)medtronicDeviceCursor.get(0);
