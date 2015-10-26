@@ -543,7 +543,7 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 				} else {
 					if (cgmSelected == Constants.MEDTRONIC_CGM) {
 						filter = "q={'deviceId':{$eq:'"+prefs.getString("medtronic_cgm_id", "")+"'}}";
-						JSONArray medtronicDeviceCursor = doGetRequest(httpclient, deviceStatusUrl, filter, null, "1", apiKey);
+						JSONArray medtronicDeviceCursor = doGetRequest(httpclient, deviceStatusUrl, filter, null, "l=1", apiKey);
 						if (medtronicDeviceCursor != null && medtronicDeviceCursor.length() > 0) {
 							JSONObject medtronicDevice = (JSONObject)medtronicDeviceCursor.get(0);
 							if (medtronicDevice.has("insulinLeft")) {
@@ -605,9 +605,9 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 						log.info("retrieving data");
 						filter = "q={'type':{$ne:'mbg'}}";
 						sort = "s={'date':-1}";
-						JSONArray recordCursor = doGetRequest(httpclient, entriesUrl, filter, sort, "1", apiKey);
+						JSONArray recordCursor = doGetRequest(httpclient, entriesUrl, filter, sort, "l=1", apiKey);
 						filter = "q={'type':{$eq:'mbg'}}";
-						JSONArray recordMbgCursor = doGetRequest(httpclient, entriesUrl, filter, sort, "1", apiKey);
+						JSONArray recordMbgCursor = doGetRequest(httpclient, entriesUrl, filter, sort, "l=1", apiKey);
 						log.info("data retrieved");
 						if (recordCursor != null && recordCursor.length() > 0) {
 							JSONObject record = (JSONObject)recordCursor.get(0);
@@ -691,7 +691,7 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 					settings.edit().putString("mbgRecords", mbgRecords.toString()).commit();
 					settings.edit().putString("sgvRecords", sgvRecords.toString()).commit();
 					sort = "s={'created_at':-1}";
-					JSONArray deviceStatusCursor = doGetRequest(httpclient, dsCollectioncUrl, null, sort, "1", apiKey);
+					JSONArray deviceStatusCursor = doGetRequest(httpclient, dsCollectioncUrl, null, sort, "l=1", apiKey);
 					if (deviceStatusCursor != null && deviceStatusCursor.length() > 0) {
 						JSONObject deviceStatus = (JSONObject)deviceStatusCursor.get(0);
 						if (deviceStatus.has("uploaderBattery"))
