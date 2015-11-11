@@ -961,7 +961,7 @@ public class CGMClock extends Activity implements OnSharedPreferenceChangeListen
 				        		if (m_type == 0)
 				        			yVals1.add(new Entry(mbgRecord.getInt("mbg"), index));
 				        		else
-				        			yVals1.add(new Entry((float)mbgRecord.getDouble("mbg"), index));
+				        			yVals1.add(new Entry((float)mbgRecord.getDouble("mbg")/(float)18.0, index));
 				        	  }
 				        	  index--;
 	        			 }
@@ -974,7 +974,7 @@ public class CGMClock extends Activity implements OnSharedPreferenceChangeListen
 					        		if (m_type == 0)
 					        			yVals1.add(new Entry(mbgRecord.getInt("mbg"), index));
 					        		else
-					        			yVals1.add(new Entry((float)mbgRecord.getDouble("mbg"), index));
+					        			yVals1.add(new Entry((float)mbgRecord.getDouble("mbg")/(float)18.0, index));
 					        	  }
 					        	  index--;
 		        			 }
@@ -1001,7 +1001,7 @@ public class CGMClock extends Activity implements OnSharedPreferenceChangeListen
 			        		if (m_type == 0){
 			        			yVals2.add(0,new Entry(sgvRecord.getInt("sgv"), index));
 			        		}else
-			        			yVals2.add(0,new Entry((float)sgvRecord.getDouble("sgv"),index));
+			        			yVals2.add(0,new Entry((float)sgvRecord.getDouble("sgv")/(float)18.0,index));
 			        	  }
 			        	  index--;
 		        	  }
@@ -1015,7 +1015,7 @@ public class CGMClock extends Activity implements OnSharedPreferenceChangeListen
 					        		if (m_type == 0){
 					        			yVals2.add(0,new Entry(sgvRecord.getInt("sgv"), index));
 					        		}else
-					        			yVals2.add(0,new Entry((float)sgvRecord.getDouble("sgv"),index));
+					        			yVals2.add(0,new Entry((float)sgvRecord.getDouble("sgv")/(float)18.0,index));
 					        	  }
 					        	  index--;
 				        	  }
