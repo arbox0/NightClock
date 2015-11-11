@@ -254,12 +254,14 @@ public class AlertActivity extends Activity {
      		
      		if (type == Constants.ALARM){
      			editor.putBoolean("alarmEnableActive", true);
+     			editor.putLong("alarm_time", System.currentTimeMillis());
      			if (waitValue < 0)
      				editor.remove("alarm_reenable");
      			else
      				editor.putLong("alarm_reenable", waitValue*60000);
  			} else if (type == Constants.WARNING){
  				editor.putBoolean("warningEnableActive", true);
+ 				editor.putLong("warning_time", System.currentTimeMillis());
  				if (waitValue < 0)
      				editor.remove("warning_reenable");
      			else
@@ -267,6 +269,7 @@ public class AlertActivity extends Activity {
  	        }else if (type == Constants.ALARM_SGV_ERROR){
  	        	editor.putBoolean("alarmSgvEnableActive", true);
  	        	editor.remove("alarm_sgv_reenable");
+ 	        	editor.putLong("alarm_sgv_time", System.currentTimeMillis());
  	        	if (waitValue < 0)
      				editor.remove("alarm_sgv_reenable");
      			else
@@ -277,12 +280,15 @@ public class AlertActivity extends Activity {
      		if (type == Constants.ALARM){
      			editor.putBoolean("alarmEnableActive", false);
  	        	editor.remove("alarm_reenable");
+ 	        	//editor.putBoolean("alarmRaised", false);
  			} else if (type == Constants.WARNING){
  				editor.putBoolean("warningEnableActive", false);
  				editor.remove("warning_reenable");
+ 				//editor.putBoolean("warningRaised", false);
  	        }else if (type == Constants.ALARM_SGV_ERROR){
  	        	editor.putBoolean("alarmSgvEnableActive", false);
  	        	editor.remove("alarm_sgv_reenable");
+ 	        	//editor.putBoolean("error_sgvraised", false);
  	        }
      		
      		

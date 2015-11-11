@@ -1250,6 +1250,9 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 					sgvInt = (float) Integer.parseInt(sgv);
 					if (prefs.getString("metric_preference", "1").equals("2"))
 						sgvInt = sgvInt / divisor;
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putBoolean("alarmSgvEnableActive", true);
+					editor.commit();
 				} else {
 					boolean alarm_error = prefs
 							.getBoolean("alarm_error", false);
@@ -1303,6 +1306,7 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.remove("previousSVGVALUE");
 			editor.remove("currentDataDiff");
+			editor.remove("lastGoodValue");
 			editor.commit();
 			return sgv;
 		} else {
@@ -1447,8 +1451,24 @@ public class DownloadHelper extends AsyncTask<Object, Void, Void> {
 
 			if (color == Color.GREEN || color == Color.WHITE) {
 				SharedPreferences.Editor editor = prefs.edit();
-				editor.remove("alarmRaised");
-				editor.remove("warningRaised");
+				long lastGood = prefs.getLong("lastGoodValue", 0);
+				if (lastGood <= 0){
+					editor.putLong("lastGoodValue", System.currentTimeMillis());
+					editor.commit();
+				} else {
+					long current = System.currentTimeMillis();
+					if (current - lastGood >= 600000) {
+						editor.remove("alarmRaised");
+						editor.remove("warningRaised");
+						editor.remove("error_sgvraised");
+						editor.remove("alarmEnableActive");
+						editor.remove("warningEnableActive");
+						editor.commit();
+					}
+				}
+			} else {
+				SharedPreferences.Editor editor = prefs.edit();
+				editor.remove("lastGoodValue");
 				editor.commit();
 			}
 
